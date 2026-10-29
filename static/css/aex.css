@@ -1,0 +1,32 @@
+.text-link{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:9px 1px}.general-form{max-width:580px}.general-form small{display:block;margin-top:6px;font-size:12px}.checkbox-field{display:flex;gap:12px;align-items:center;margin-top:20px}.checkbox-field label{margin:0}.checkbox-field input{width:20px;min-height:20px}.people-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.person h2{overflow-wrap:anywhere}.person dl{display:grid;grid-template-columns:80px minmax(0,1fr);gap:9px;margin-top:22px;font-size:14px}.person dt{color:var(--muted)}.person dd{margin:0;overflow-wrap:anywhere}.period-filter{display:flex;align-items:end;gap:16px}.period-filter>div{flex:1}.period-filter label{margin-top:0}.cancel-sale{margin-top:12px}.sale-report td{font-variant-numeric:tabular-nums}.records{table-layout:fixed}.records td,.records th{overflow-wrap:anywhere}
+@media(max-width:540px){.people-grid{grid-template-columns:1fr;gap:0}.period-filter{flex-wrap:wrap;gap:10px}.period-filter>div{flex-basis:40%}.period-filter .button{width:100%}.person .actions{flex-wrap:wrap}.sale-report,.sale-report td{font-size:11px}.sale-report td{padding:12px 3px}.sale-report th{font-size:10px;padding:10px 3px}.sale-total{font-size:15px;gap:8px}.sale-total strong{white-space:nowrap}.records td{font-size:11px}.records th{font-size:9px}.card>table{font-size:12px}.card>table td,.card>table th{padding-left:4px;padding-right:4px}.actions:has(button[name=acao]){flex-wrap:wrap}.actions:has(button[name=acao]) .button{width:100%}}
+@media print{.period-filter{display:none}}
+
+.period-filter{flex-wrap:wrap}.period-filter>div{min-width:150px}.filter-help{flex-basis:100%;margin:0;font-size:12px;color:var(--muted)}.stock-totals .card>small{display:block;margin-top:9px;font-size:12px;color:var(--muted)}.back-link{display:inline-block;margin-bottom:22px;color:var(--green);font-size:14px;font-weight:600;padding:5px 0}
+@media(max-width:540px){.stock-totals .card{display:block}.stock-totals strong{margin-top:8px}.period-filter>div{flex-basis:100%;min-width:0}.period-filter .text-link{width:100%;text-align:center}.back-link{margin-bottom:18px}}
+
+.records .entry-overview td{border-bottom:0;padding-bottom:4px}
+.records .entry-details td{text-align:left;padding:0 8px 12px}
+.entry-details details{margin:0;font-size:14px}
+.entry-details summary{min-height:44px;padding:11px 0;color:var(--green);font-weight:600;cursor:pointer}
+.entry-details summary:hover{text-decoration:underline;text-underline-offset:3px}
+.entry-content{background:#f7f6f1;border-radius:12px;padding:18px;max-width:680px}
+.entry-content h3{margin-bottom:10px}
+.entry-items{list-style:none;margin:0;padding:0}
+.entry-items li,.entry-weight{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.entry-items small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.entry-items strong,.entry-weight strong{white-space:nowrap}
+.entry-weight{border-bottom:0;margin:0;padding-bottom:0;font-weight:600}
+@media(max-width:540px){.entry-content{padding:14px}.entry-items li,.entry-weight{font-size:13px;gap:10px}.entry-details details{font-size:13px}}
+
+/* Ajustes de apresentação */
+.user-icon{width:17px;height:17px;flex-shrink:0;color:var(--green)}
+.card{box-shadow:none;border-radius:16px}
+.menu-grid{grid-template-columns:1fr;max-width:640px;gap:10px}
+.menu-card{min-height:56px;padding:16px 20px;border-radius:12px;font-size:16px;transition:none}
+.menu-card:hover{transform:none;background:#fafbf8}
+.menu-card.featured:hover{background:var(--green)}
+.stock-note{margin:-8px 0 24px;font-size:12px;color:var(--muted)}
+.stock-totals .card{padding:20px 22px}
+.entry-content h3{font-size:14px}
+@media(max-width:540px){.menu-card{min-height:48px;padding:13px 16px;font-size:15px}.stock-totals .card{padding:16px}.stock-note{margin:-4px 0 20px}}

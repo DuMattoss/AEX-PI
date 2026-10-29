@@ -1,0 +1,7 @@
+<div class="metrics stock-totals" aria-label="Resumo do estoque atual">
+  <div class="card"><span>Peso total em estoque</span><strong id="estoque-total">{{ resumo_estoque.total|floatformat:2 }} <small>kg</small></strong></div>
+  <div class="card"><span>Disponível para venda</span><strong>{{ resumo_estoque.classificado|floatformat:2 }} <small>kg</small></strong></div>
+  <div class="card"><span>Aguardando classificação</span><strong>{{ resumo_estoque.pendente|floatformat:2 }} <small>kg</small></strong></div>
+</div>
+
+<p class="stock-note">O total inclui o material que aguarda classificação.</p>

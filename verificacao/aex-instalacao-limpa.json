@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "check"
+    ],
+    "exit_code": 0,
+    "stdout": "System check identified no issues (0 silenced).\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "migrate",
+      "--noinput"
+    ],
+    "exit_code": 0,
+    "stdout": "Operations to perform:\n  Apply all migrations: admin, auth, contenttypes, core, sessions\nRunning migrations:\n  Applying contenttypes.0001_initial... OK\n  Applying auth.0001_initial... OK\n  Applying admin.0001_initial... OK\n  Applying admin.0002_logentry_remove_auto_add... OK\n  Applying admin.0003_logentry_add_action_flag_choices... OK\n  Applying contenttypes.0002_remove_content_type_name... OK\n  Applying auth.0002_alter_permission_name_max_length... OK\n  Applying auth.0003_alter_user_email_max_length... OK\n  Applying auth.0004_alter_user_username_opts... OK\n  Applying auth.0005_alter_user_last_login_null... OK\n  Applying auth.0006_require_contenttypes_0002... OK\n  Applying auth.0007_alter_validators_add_error_messages... OK\n  Applying auth.0008_alter_user_username_max_length... OK\n  Applying auth.0009_alter_user_last_name_max_length... OK\n  Applying auth.0010_alter_group_name_max_length... OK\n  Applying auth.0011_update_proxy_permissions... OK\n  Applying auth.0012_alter_user_first_name_max_length... OK\n  Applying core.0001_initial... OK\n  Applying core.0002_catalogo... OK\n  Applying core.0003_perfil_pesagem... OK\n  Applying core.0004_alinhar_modelagem... OK\n  Applying sessions.0001_initial... OK\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "popular_demo"
+    ],
+    "exit_code": 0,
+    "stdout": "Dados FICT�CIOS criados. Login: demo | Senha: Coopera123!\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "popular_demo"
+    ],
+    "exit_code": 0,
+    "stdout": "Demonstra��o j� criada. Contas por cargo dispon�veis; nenhum movimento duplicado.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "shell",
+      "-c"
+    ],
+    "exit_code": 0,
+    "stdout": "14 objects imported automatically (use -v 2 for details).\n\nBase limpa validada: C:\\Users\\proga\\OneDrive\\Documentos\\ChatGPT\\urso pelado 2\\cooperativa\\tmp\\instalacao-limpa-192654\\cooperativa\nPesagens: 30 Vendas: 30\n",
+    "stderr": ""
+  }
+]

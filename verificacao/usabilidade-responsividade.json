@@ -1,0 +1,52 @@
+[
+  {
+    "overflow": false,
+    "page": "painel-intervalo",
+    "width": 375
+  },
+  {
+    "overflow": false,
+    "page": "painel-intervalo",
+    "width": 430
+  },
+  {
+    "overflow": false,
+    "page": "painel-intervalo",
+    "width": 768
+  },
+  {
+    "overflow": false,
+    "page": "painel-intervalo",
+    "width": 1366
+  },
+  {
+    "overflow": false,
+    "page": "painel-intervalo",
+    "width": 1920
+  },
+  {
+    "overflow": false,
+    "page": "estoque-resumo",
+    "width": 375
+  },
+  {
+    "overflow": false,
+    "page": "estoque-resumo",
+    "width": 430
+  },
+  {
+    "overflow": false,
+    "page": "estoque-resumo",
+    "width": 768
+  },
+  {
+    "overflow": false,
+    "page": "estoque-resumo",
+    "width": 1366
+  },
+  {
+    "overflow": false,
+    "page": "estoque-resumo",
+    "width": 1920
+  }
+]

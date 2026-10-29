@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Painel{% endblock %}
+{% block content %}
+<h1>Painel</h1>
+<h2>Estoque atual</h2>
+<p class="muted small-text">Saldo atual, independentemente do período escolhido.</p>
+{% include 'resumo_estoque.html' %}
+<h2>Movimentação por período</h2>
+<form method="get" action="{% url 'relatorios' %}" class="card period-filter">
+  {{ form.non_field_errors }}
+  {% for field in form %}<div><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{{ field.errors }}</div>{% endfor %}
+  <button class="button">Aplicar período</button>
+  <a class="text-link" href="{% url 'painel' %}">Limpar filtro</a>
+  
+</form>
+{% if form.errors %}<div class="message error" role="alert">Corrija o período selecionado para consultar os dados.</div>
+{% else %}
+<section class="card">
+  <div class="section-heading"><h2>Material recebido · {{ periodo }}</h2><span class="muted">Quantidade em kg · {{ eixo_descricao }}</span></div>
+  {% if tem_dados %}
+    {{ grafico|json_script:'chart-data' }}
+    <div class="chart-wrap"><canvas id="material-chart" role="img" aria-label="Peso recebido por material no período selecionado."></canvas></div>
+    <div class="legend"><span class="plastic">Plástico</span><span class="paper">Papelão</span><span class="metal">Metal</span></div>
+    <details><summary>Ver valores</summary><div class="chart-table"><table><thead><tr><th>Material</th>{% for mes in grafico.meses %}<th>{{ mes }}</th>{% endfor %}</tr></thead><tbody>{% for serie in grafico.series %}<tr><td>{{ serie.nome }}</td>{% for valor in serie.valores %}<td>{{ valor|floatformat:2 }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div></details>
+  {% else %}<p class="empty">Ainda não há dados no período {{ periodo }} para exibir no gráfico.</p>{% endif %}
+</section>
+<div class="metrics">
+  <div class="card"><span>Recebido no período</span><strong>{{ recebido|floatformat:2 }} <small>kg</small></strong></div>
+  <div class="card"><span>Vendido no período</span><strong>{{ vendido|floatformat:2 }} <small>kg</small></strong></div>
+  {% if pode_vender %}<div class="card"><span>Receita no período</span><strong>R$ {{ receita|floatformat:2 }}</strong></div>{% endif %}
+</div>
+{% endif %}
+{% endblock %}
