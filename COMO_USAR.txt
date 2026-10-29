@@ -1,0 +1,21 @@
+﻿COMO INICIAR A COOPERATIVA
+
+1. Extraia este ZIP dentro da pasta que contem manage.py e requirements.txt.
+2. Mantenha o arquivo iniciar-cooperativa.cmd ao lado de manage.py.
+3. Mantenha iniciar.py dentro da subpasta scripts.
+4. Se houver um iniciar-cooperativa.cmd antigo, substitua por este.
+5. De dois cliques em iniciar-cooperativa.cmd e aguarde.
+
+O iniciador configura o ambiente e o banco e abre o sistema no navegador.
+Na primeira execucao, e necessario acesso a internet para instalar as dependencias.
+O computador precisa ter Python 3.10 ou superior instalado.
+Caso nao tenha Python, instale pelo site https://www.python.org/downloads/ e marque Add Python to PATH.
+
+Deixe a janela do iniciador aberta enquanto usa o sistema.
+Para encerrar, pressione Ctrl+C. Os dados ficam salvos.
+Se a porta 8000 estiver ocupada, o sistema escolhe outra porta e mostra o endereco.
+
+Contas de demonstracao em um banco novo: demo, diretoria e cooperado.
+Senha inicial: Coopera123!
+
+Este ZIP contem somente os arquivos do iniciador. Os templates e as regras do seu projeto nao sao substituidos.
