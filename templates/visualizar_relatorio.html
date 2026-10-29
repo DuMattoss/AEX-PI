@@ -1,1 +1,98 @@
-{% extends 'base.html' %}{% block title %}Relatório {{ tipo }}{% endblock %}{% block content %}<div class="page-heading"><div><p class="eyebrow">COOPERATIVA</p><h1>Relatório de {% if financeiro %}produção e vendas{% else %}produção{% endif %} · {{ tipo }}</h1><p class="subtitle">{{ periodo }}</p></div><button class="button no-print" id="print-report">Imprimir / Salvar em PDF</button></div><div class="metrics"><div class="card"><span>Total recebido</span><strong>{{ recebido|floatformat:2 }} kg</strong></div><div class="card"><span>Total vendido</span><strong>{{ vendido|floatformat:2 }} kg</strong></div>{% if financeiro %}<div class="card"><span>Receita das vendas</span><strong>R$ {{ receita|floatformat:2 }}</strong></div>{% endif %}</div>{% if not tem_dados %}<div class="message">Não há dados disponíveis para o período selecionado.</div>{% endif %}<section class="card"><h2>Quantidade por material</h2><table><thead><tr><th>Material</th><th>Recebido</th><th>Vendido</th></tr></thead><tbody>{% for material in materiais %}<tr><td>{{ material.nome }}</td><td>{{ material.recebido|floatformat:2 }} kg</td><td>{{ material.vendido|floatformat:2 }} kg</td></tr>{% endfor %}</tbody></table></section><section class="card"><h2>Resumo das entradas</h2>{% for registro in entradas %}<div class="report-record"><h3>{{ registro.data|date:'d/m/Y' }} · {{ registro.material }} · {{ registro.peso_total|floatformat:2 }} kg</h3>{% for item in registro.itens.all %}<p>{{ item.classificacao.nome }} <strong>{{ item.peso|floatformat:2 }} kg</strong></p>{% endfor %}</div>{% empty %}<p class="empty">Nenhuma entrada classificada neste período.</p>{% endfor %}{% for p in pesagens_pendentes %}<div class="report-record"><h3>{{ p.data|date:'d/m/Y' }} · {{ p.material }} · {{ p.peso|floatformat:2 }} kg</h3><p>Aguardando classificação</p></div>{% endfor %}</section>{% if financeiro %}<section class="card"><h2>Resumo das vendas</h2>{% for registro in vendas %}<div class="report-record"><h3>{{ registro.data|date:'d/m/Y' }} · {{ registro.material }} · R$ {{ registro.valor_total|floatformat:2 }}</h3>{% for item in registro.itens.all %}<p>{{ item.classificacao.nome }} · {{ item.peso|floatformat:2 }} kg × R$ {{ item.preco_por_kg|floatformat:2 }} <strong>R$ {{ item.subtotal|floatformat:2 }}</strong></p>{% endfor %}</div>{% empty %}<p class="empty">Nenhuma venda neste período.</p>{% endfor %}</section>{% endif %}<a class="button secondary no-print" href="{% url 'relatorios' %}">Voltar</a>{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}
+    Relatório {{ tipo }}
+{% endblock %}
+
+{% block content %}
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">COOPERATIVA</p>
+            <h1>Relatório de {% if financeiro %}produção e vendas{% else %}produção{% endif %} · {{ tipo }}</h1>
+            <p class="subtitle">{{ periodo }}</p>
+        </div>
+        <button class="button no-print" id="print-report">Imprimir / Salvar em PDF</button>
+    </div>
+
+    <div class="metrics">
+        <div class="card">
+            <span>Total recebido</span>
+            <strong>{{ recebido|floatformat:2 }} kg</strong>
+        </div>
+        <div class="card">
+            <span>Total vendido</span>
+            <strong>{{ vendido|floatformat:2 }} kg</strong>
+        </div>
+        {% if financeiro %}
+            <div class="card">
+                <span>Receita das vendas</span>
+                <strong>R$ {{ receita|floatformat:2 }}</strong>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if not tem_dados %}
+        <div class="message">Não há dados disponíveis para o período selecionado.</div>
+    {% endif %}
+
+    <section class="card">
+        <h2>Quantidade por material</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Recebido</th>
+                    <th>Vendido</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for material in materiais %}
+                    <tr>
+                        <td>{{ material.nome }}</td>
+                        <td>{{ material.recebido|floatformat:2 }} kg</td>
+                        <td>{{ material.vendido|floatformat:2 }} kg</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>Resumo das entradas</h2>
+        {% for registro in entradas %}
+            <div class="report-record">
+                <h3>{{ registro.data|date:'d/m/Y' }} · {{ registro.material }} · {{ registro.peso_total|floatformat:2 }} kg</h3>
+                {% for item in registro.itens.all %}
+                    <p>{{ item.classificacao.nome }} <strong>{{ item.peso|floatformat:2 }} kg</strong></p>
+                {% endfor %}
+            </div>
+        {% empty %}
+            <p class="empty">Nenhuma entrada classificada neste período.</p>
+        {% endfor %}
+
+        {% for p in pesagens_pendentes %}
+            <div class="report-record">
+                <h3>{{ p.data|date:'d/m/Y' }} · {{ p.material }} · {{ p.peso|floatformat:2 }} kg</h3>
+                <p>Aguardando classificação</p>
+            </div>
+        {% endfor %}
+    </section>
+
+    {% if financeiro %}
+        <section class="card">
+            <h2>Resumo das vendas</h2>
+            {% for registro in vendas %}
+                <div class="report-record">
+                    <h3>{{ registro.data|date:'d/m/Y' }} · {{ registro.material }} · R$ {{ registro.valor_total|floatformat:2 }}</h3>
+                    {% for item in registro.itens.all %}
+                        <p>{{ item.classificacao.nome }} · {{ item.peso|floatformat:2 }} kg × R$ {{ item.preco_por_kg|floatformat:2 }} <strong>R$ {{ item.subtotal|floatformat:2 }}</strong></p>
+                    {% endfor %}
+                </div>
+            {% empty %}
+                <p class="empty">Nenhuma venda neste período.</p>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    <a class="button secondary no-print" href="{% url 'relatorios' %}">Voltar</a>
+{% endblock %}
