@@ -7,7 +7,7 @@
 </div>
 <form class="filter card" method="get">
   <label for="material">Filtrar por material</label>
-  <select name="tipo" id="material"><option value="">Todos</option>{% for material in materiais %}<option value="{{ material.pk }}" {% if filtro == material.pk|stringformat:'s' %}selected{% endif %}>{{ material }}</option>{% endfor %}</select>
+  <select name="material" id="material"><option value="">Todos</option>{% for material in materiais %}<option value="{{ material.pk }}" {% if filtro == material.pk|stringformat:'s' %}selected{% endif %}>{{ material }}</option>{% endfor %}</select>
   <button class="button secondary small">Filtrar</button>
   {% if filtro %}<a class="text-link" href="{% if venda %}{% url 'vendas' %}{% else %}{% url 'estoque' %}{% endif %}">Limpar filtro</a>{% endif %}
 </form>
