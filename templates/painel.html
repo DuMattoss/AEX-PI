@@ -6,7 +6,7 @@
 <p class="muted small-text">Saldo atual, independentemente do período escolhido.</p>
 {% include 'resumo_estoque.html' %}
 <h2>Movimentação por período</h2>
-<form method="get" action="{% url 'relatorios' %}" class="card period-filter">
+<form method="get" class="card period-filter">
   {{ form.non_field_errors }}
   {% for field in form %}<div><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{{ field.errors }}</div>{% endfor %}
   <button class="button">Aplicar período</button>
