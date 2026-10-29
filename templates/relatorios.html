@@ -5,36 +5,36 @@
 {% endblock %}
 
 {% block content %}
-    \<h1>Emitir relatório\</h1>
+    <h1>Emitir relatório</h1>
 
-    \<div class="report-grid">
-        \<form class="card" action="{% url 'visualizar_relatorio' %}" method="get">
-            \<h2>Relatório mensal\</h2>
+    <div class="report-grid">
+        <form class="card" action="{% url 'visualizar_relatorio' %}" method="get">
+            <h2>Relatório mensal</h2>
 
             {% if pode_vender %}
-                \<label for="categoria-mensal">Conteúdo\</label>
+                <label for="categoria-mensal">Conteúdo</label>
 
-                \<select name="categoria" id="categoria-mensal">
-                    \<option value="producao">Produção\</option>
-                    \<option value="vendas">Produção e vendas\</option>
-                \</select>
+                <select name="categoria" id="categoria-mensal">
+                    <option value="producao">Produção</option>
+                    <option value="vendas">Produção e vendas</option>
+                </select>
             {% endif %}
 
-            \<input type="hidden" name="tipo" value="mensal">
+            <input type="hidden" name="tipo" value="mensal">
 
-            \<label for="mes">Escolha o mês\</label>
+            <label for="mes">Escolha o mês</label>
 
-            \<select name="mes" id="mes" required>
+            <select name="mes" id="mes" required>
                 {% for numero, nome in meses %}
-                    \<option value="{{ numero }}" {% if numero =*=* hoje.month %}selected{% endif %}>
+                    <option value="{{ numero }}" {% if numero == hoje.month %}selected{% endif %}>
                         {{ nome }}
-                    \</option>
+                    </option>
                 {% endfor %}
-            \</select>
+            </select>
 
-            \<label for="ano-mensal">Escolha o ano\</label>
+            <label for="ano-mensal">Escolha o ano</label>
 
-            \<input
+            <input
                 type="number"
                 name="ano"
                 id="ano-mensal"
@@ -44,28 +44,28 @@
                 required
             >
 
-            \<button class="button full">
+            <button class="button full">
                 Continuar
-            \</button>
-        \</form>
+            </button>
+        </form>
 
-        \<form class="card" action="{% url 'visualizar_relatorio' %}" method="get">
-            \<h2>Relatório anual\</h2>
+        <form class="card" action="{% url 'visualizar_relatorio' %}" method="get">
+            <h2>Relatório anual</h2>
 
             {% if pode_vender %}
-                \<label for="categoria-anual">Conteúdo\</label>
+                <label for="categoria-anual">Conteúdo</label>
 
-                \<select name="categoria" id="categoria-anual">
-                    \<option value="producao">Produção\</option>
-                    \<option value="vendas">Produção e vendas\</option>
-                \</select>
+                <select name="categoria" id="categoria-anual">
+                    <option value="producao">Produção</option>
+                    <option value="vendas">Produção e vendas</option>
+                </select>
             {% endif %}
 
-            \<input type="hidden" name="tipo" value="anual">
+            <input type="hidden" name="tipo" value="anual">
 
-            \<label for="ano-anual">Escolha o ano\</label>
+            <label for="ano-anual">Escolha o ano</label>
 
-            \<input
+            <input
                 type="number"
                 name="ano"
                 id="ano-anual"
@@ -75,9 +75,9 @@
                 required
             >
 
-            \<button class="button full">
+            <button class="button full">
                 Continuar
-            \</button>
-        \</form>
-    \</div>
+            </button>
+        </form>
+    </div>
 {% endblock %}
